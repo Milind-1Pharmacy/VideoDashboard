@@ -34,7 +34,7 @@ const DateFilterButton: React.FC<DateFilterButtonProps> = ({
     startDate
   );
   const [localEndDate, setLocalEndDate] = React.useState<Date | null>(endDate);
-  const [viewDate, setViewDate] = React.useState<Date | null>(
+  const [_, setViewDate] = React.useState<Date | null>(
     startDate || new Date()
   );
   const [selectionMode, setSelectionMode] = React.useState<"start" | "end">(

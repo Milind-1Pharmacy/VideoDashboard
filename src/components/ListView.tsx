@@ -14,28 +14,12 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import SaveIcon from "@mui/icons-material/Save";
 import { format } from "date-fns";
 import SmartDisplayIcon from "@mui/icons-material/SmartDisplay";
-import {
-  Box,
-  Card,
-  CardContent,
-  CircularProgress,
-  Fade,
-  Grid,
-  Skeleton,
-  Typography,
-} from "@mui/material";
+import { Box, Fade, Grid, Skeleton } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import VideocamIcon from "@mui/icons-material/Videocam";
 import DirectionsWalkIcon from "@mui/icons-material/DirectionsWalk";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
-import {
-  LockClockRounded,
-  LockClockTwoTone,
-  PunchClock,
-  Timelapse,
-  TimelapseTwoTone,
-} from "@mui/icons-material";
+import { TimelapseTwoTone } from "@mui/icons-material";
 import { StatCard } from "./houseOfCards";
 
 // Define the primary color
@@ -71,16 +55,6 @@ const CARD_COLORS = {
     light: "#e6f9fe",
   },
 };
-
-interface StatCardProps {
-  icon: React.ReactNode;
-  title: string;
-  value: number;
-  label?: string;
-  mainColor: string;
-  lightColor: string;
-  loading?: boolean;
-}
 
 const DashboardHeader: React.FC<{ data: VideoData[]; loading: boolean }> = ({
   data,
@@ -167,7 +141,6 @@ const DashboardHeader: React.FC<{ data: VideoData[]; loading: boolean }> = ({
     </Grid>
   );
 };
-
 
 interface Column {
   id:
@@ -327,7 +300,7 @@ export default function VideoAnalyticsTable({
     });
   }, [data]);
 
-  const handleChangePage = (event: unknown, newPage: number) => {
+  const handleChangePage = (_event: unknown, newPage: number) => {
     setLoadingRows(true);
     setPage(newPage);
 
@@ -387,7 +360,7 @@ export default function VideoAnalyticsTable({
                 ? // Loading skeleton rows
                   Array.from(new Array(rowsPerPage)).map((_, index) => (
                     <TableRow key={`skeleton-${index}`}>
-                      {columns.map((column, colIndex) => (
+                      {columns.map((_, colIndex) => (
                         <TableCell key={`skeleton-cell-${colIndex}`}>
                           <Skeleton
                             animation="wave"
@@ -409,8 +382,7 @@ export default function VideoAnalyticsTable({
                             hover
                             tabIndex={-1}
                             key={row.id}
-                            onClick={(e) => {
-                              console.log("Row clicked:", row);
+                            onClick={() => {
                               onView && onView(row);
                             }}
                             style={{

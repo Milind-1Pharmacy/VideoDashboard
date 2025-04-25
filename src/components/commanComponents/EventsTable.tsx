@@ -100,10 +100,7 @@ const EventsTable = ({ events, jumpToTimestamp }: EventsTableProps) => {
     imageUrl: string;
   } | null>(null);
 
-  const handleTabChange = (
-    event: React.SyntheticEvent,
-    newValue: number
-  ): void => {
+  const handleTabChange = (_event: React.SyntheticEvent, newValue: number): void => {
     setActiveTab(newValue);
   };
 

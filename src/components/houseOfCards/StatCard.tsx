@@ -3,7 +3,6 @@ import {
   Box,
   Card,
   CardContent,
-  CircularProgress,
   Grid,
   Typography,
   useTheme,
@@ -182,7 +181,7 @@ const StatCard: React.FC<StatCardProps> = ({
           alignItems="center"
           justifyContent="space-between"
         >
-          <Grid item xs={8}>
+          <Grid >
             <Typography
               variant="subtitle1"
               sx={{
@@ -274,8 +273,7 @@ const StatCard: React.FC<StatCardProps> = ({
           </Grid>
 
           <Grid
-            item
-            xs={4}
+
             sx={{ display: "flex", justifyContent: "flex-end" }}
           >
             <Box
@@ -292,12 +290,17 @@ const StatCard: React.FC<StatCardProps> = ({
                 animation: `${pulse} 2s infinite`,
               }}
             >
-              {React.cloneElement(icon, {
-                sx: {
+              <Box
+                sx={{
                   fontSize: { xs: 22, sm: 28, md: 32 },
                   color: "white",
-                },
-              })}
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                {icon}
+              </Box>
             </Box>
           </Grid>
         </Grid>

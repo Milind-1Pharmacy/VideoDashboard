@@ -1,15 +1,9 @@
-import * as React from "react";
 import {
   AppBar,
-  Toolbar,
   Typography,
   Box,
-  IconButton,
-  Avatar,
-  Badge,
-  Tooltip,
 } from "@mui/material";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+
 import VideocamIcon from "@mui/icons-material/Videocam";
 
 // Define the primary color

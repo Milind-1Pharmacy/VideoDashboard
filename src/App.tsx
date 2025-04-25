@@ -13,14 +13,10 @@ import {
   Box,
   Typography,
   Paper,
-  Grid,
-  Card,
-  CardContent,
   Button,
   Stack,
   useTheme,
   useMediaQuery,
-  CircularProgress,
 } from "@mui/material";
 import { Header } from "./components";
 import { mockData } from "./mockdata";

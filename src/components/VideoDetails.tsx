@@ -5,37 +5,24 @@ import {
   Typography,
   Button,
   Paper,
-  Card,
   CardMedia,
   CircularProgress,
-  Tooltip,
-  IconButton,
   Grid,
-  Chip,
-  Avatar,
   useTheme,
-  useMediaQuery,
-  Divider,
-  Stack,
   Collapse,
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import DownloadIcon from "@mui/icons-material/Download";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import DescriptionIcon from "@mui/icons-material/Description";
 import {
-  BoyTwoTone,
   ExpandLess,
   ExpandMore,
-  GirlTwoTone,
   Man2Rounded,
   TimelapseSharp,
   Woman2Rounded,
 } from "@mui/icons-material";
 import PeopleIcon from "@mui/icons-material/People";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { formatTime } from "../utils/dateUtils";
 import EventsTable from "./commanComponents/EventsTable";
 
@@ -124,30 +111,6 @@ const fetchVideoDetails = async (videoId: string): Promise<VideoData> => {
   });
 };
 
-// Jump to timestamp button component
-const JumpButton: React.FC<{ timestamp: string; onClick: () => void }> = ({
-  timestamp,
-  onClick,
-}) => {
-  const theme = useTheme();
-
-  return (
-    <Tooltip title="Jump to this moment in video">
-      <IconButton
-        size="small"
-        onClick={onClick}
-        sx={{
-          color: theme.palette.primary.main,
-          "&:hover": {
-            backgroundColor: `${theme.palette.primary.light}30`,
-          },
-        }}
-      >
-        <PlayArrowIcon />
-      </IconButton>
-    </Tooltip>
-  );
-};
 
 // Stat card component
 const StatCard: React.FC<{
@@ -205,7 +168,7 @@ const VideoDetails: React.FC = () => {
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
   const [showTranscript, setShowTranscript] = React.useState(false);
-  const [currentTime, setCurrentTime] = React.useState(0);
+  const [, setCurrentTime] = React.useState(0);
 
   React.useEffect(() => {
     if (!videoId) {

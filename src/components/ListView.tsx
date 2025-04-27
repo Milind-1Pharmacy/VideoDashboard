@@ -21,20 +21,24 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import { TimelapseTwoTone } from "@mui/icons-material";
 import { StatCard } from "./houseOfCards";
-
+import {
+  VideoDataInterface,
+  ColumnInterface,
+  VideoAnalyticsTableProps,
+} from "../utils";
 // Define the primary color
 const PRIMARY_COLOR = "#2e6acf";
-interface VideoData {
-  id: string;
-  name: string;
-  startTimestamp: string;
-  endTimestamp: string;
-  numberOfEnquiries: number;
-  numberOfSales: number;
-  numberOfFootFallCount: number;
-  downloadUrl: string;
-  thumbnailUrl?: string;
-}
+// interface VideoDataInterface {
+//   id: string;
+//   name: string;
+//   startTimestamp: string;
+//   endTimestamp: string;
+//   numberOfEnquiries: number;
+//   numberOfSales: number;
+//   numberOfFootFallCount: number;
+//   downloadUrl: string;
+//   thumbnailUrl?: string;
+// }
 
 // Define theme colors for cards
 const CARD_COLORS = {
@@ -56,13 +60,13 @@ const CARD_COLORS = {
   },
 };
 
-const DashboardHeader: React.FC<{ data: VideoData[]; loading: boolean }> = ({
-  data,
-  loading,
-}) => {
+const DashboardHeader: React.FC<{
+  data: VideoDataInterface[];
+  loading: boolean;
+}> = ({ data, loading }) => {
   // Calculate totals
-  //     const startTime = new Date(VideoData.startTimestamp).getTime();
-  //     const endTime = new Date(VideoData.endTimestamp).getTime();
+  //     const startTime = new Date(VideoDataInterface.startTimestamp).getTime();
+  //     const endTime = new Date(VideoDataInterface.endTimestamp).getTime();
   //     const durationMinutes = Math.round((endTime - startTime) / (1000 * 60));
   // const totalVideosLength = data.reduce((acc,video)=> acc + video);
   let totalVideosLength = 0;
@@ -76,7 +80,7 @@ const DashboardHeader: React.FC<{ data: VideoData[]; loading: boolean }> = ({
   // console.log(data, totalVideosLength);
 
   const totalFootfall = data.reduce(
-    (acc, video) => acc + video.numberOfFootFallCount,
+    (acc, video) => acc + (video.numberOfFootFallCount ?? 0),
     0
   );
   const totalSales = data.reduce((acc, video) => acc + video.numberOfSales, 0);
@@ -118,7 +122,7 @@ const DashboardHeader: React.FC<{ data: VideoData[]; loading: boolean }> = ({
       <Grid sx={{ flex: "1 0 auto", minWidth: "200px" }}>
         <StatCard
           icon={<ShoppingCartIcon />}
-          title="Sales Performance"
+          title="Sales Count"
           value={totalSales}
           label="Total transactions completed"
           mainColor={CARD_COLORS.sales.main}
@@ -142,38 +146,38 @@ const DashboardHeader: React.FC<{ data: VideoData[]; loading: boolean }> = ({
   );
 };
 
-interface Column {
-  id:
-    | "name"
-    | "startTimestamp"
-    | "endTimestamp"
-    | "duration"
-    | "numberOfEnquiries"
-    | "numberOfSales"
-    | "conversionRate"
-    | "numberOfFootFallCount"
-    | "actions";
-  label: string;
-  minWidth?: number;
-  maxWidth?: number;
-  align?: "right" | "left" | "center";
-  format?: (value: any) => string;
-}
+// interface Column {
+//   id:
+//     | "name"
+//     | "startTimestamp"
+//     | "endTimestamp"
+//     | "duration"
+//     | "numberOfEnquiries"
+//     | "numberOfSales"
+//     | "conversionRate"
+//     | "numberOfFootFallCount"
+//     | "actions";
+//   label: string;
+//   minWidth?: number;
+//   maxWidth?: number;
+//   align?: "right" | "left" | "center";
+//   format?: (value: any) => string;
+// }
 
-interface VideoData {
-  id: string;
-  name: string;
-  startTimestamp: string;
-  endTimestamp: string;
-  numberOfEnquiries: number;
-  numberOfSales: number;
-  numberOfFootFallCount: number;
-  downloadUrl: string;
-  thumbnailUrl?: string;
-  conversionRate?: number;
-}
+// interface VideoDataInterface {
+//   id: string;
+//   name: string;
+//   startTimestamp: string;
+//   endTimestamp: string;
+//   numberOfEnquiries: number;
+//   numberOfSales: number;
+//   numberOfFootFallCount: number;
+//   downloadUrl: string;
+//   thumbnailUrl?: string;
+//   conversionRate?: number;
+// }
 
-const columns: readonly Column[] = [
+const columns: readonly ColumnInterface[] = [
   { id: "name", label: "Video Name", minWidth: 170, maxWidth: 200 },
   {
     id: "startTimestamp",
@@ -265,12 +269,12 @@ const ThumbnailImage = styled("img")({
   objectFit: "cover",
 });
 
-interface VideoAnalyticsTableProps {
-  data: VideoData[];
-  onView?: (video: VideoData) => void;
-  onSave?: (video: VideoData) => void;
-  loading?: boolean;
-}
+// interface VideoAnalyticsTableProps {
+//   data: VideoDataInterface[];
+//   onView?: (video: VideoDataInterface) => void;
+//   onSave?: (video: VideoDataInterface) => void;
+//   loading?: boolean;
+// }
 
 export default function VideoAnalyticsTable({
   data,
@@ -286,7 +290,7 @@ export default function VideoAnalyticsTable({
   const processedData = React.useMemo(() => {
     return data.map((row) => {
       const conversionRate =
-        row.numberOfFootFallCount > 0
+        (row?.numberOfFootFallCount ?? 0) > 0
           ? (row.numberOfSales / row.numberOfEnquiries) * 100
           : 0;
 
@@ -519,13 +523,16 @@ export default function VideoAnalyticsTable({
                                 );
                               }
 
-                              const value = row[column.id as keyof VideoData];
+                              const value =
+                                row[column.id as keyof VideoDataInterface];
                               return (
                                 <StyledTableCell
                                   key={column.id}
                                   align={column.align}
                                 >
-                                  {column.format && value !== undefined
+                                  {Array.isArray(value)
+                                    ? JSON.stringify(value)
+                                    : column.format && value !== undefined
                                     ? column.format(value)
                                     : value}
                                 </StyledTableCell>

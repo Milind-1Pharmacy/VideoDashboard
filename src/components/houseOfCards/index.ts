@@ -1,3 +1,3 @@
 import StatCard from "./StatCard";
-
-export { StatCard };
+import StatusCard from "./StatusCard";
+export { StatCard, StatusCard };

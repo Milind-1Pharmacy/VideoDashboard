@@ -22,72 +22,13 @@ import { Header } from "./components";
 import { mockData } from "./mockdata";
 import RefreshIcon from "@mui/icons-material/Refresh";
 import StorefrontIcon from "@mui/icons-material/Storefront";
-import VideocamOffIcon from "@mui/icons-material/VideocamOff";
 import DonutLargeIcon from "@mui/icons-material/DonutLarge";
-import FilterListIcon from "@mui/icons-material/FilterList";
-import { DateFilterButton, TruckLoader } from "./components/commanComponents";
+import {
+  DateFilterButton,
+  EmptyStateView,
+} from "./components/commanComponents";
 import VideoDetails from "./components/VideoDetails";
-
-interface VideoData {
-  id: string;
-  name: string;
-  startTimestamp: string;
-  endTimestamp: string;
-  numberOfEnquiries: number;
-  numberOfSales: number;
-  numberOfFootFallCount: number;
-  downloadUrl: string;
-  thumbnailUrl?: string;
-}
-
-const EmptyState: React.FC<{ loading: boolean; isFiltered: boolean }> = ({
-  loading,
-  isFiltered,
-}) => (
-  <Box
-    sx={{
-      textAlign: "center",
-      py: 6,
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      height: 300,
-      backgroundColor: "#f5f7fa",
-      borderRadius: 3,
-    }}
-  >
-    {loading ? (
-      <>
-        <TruckLoader />
-      </>
-    ) : isFiltered ? (
-      <>
-        <FilterListIcon sx={{ fontSize: 60, color: "#9e9e9e", mb: 2 }} />
-        <Typography variant="h6" color="text.secondary" gutterBottom>
-          No data available for the selected date range
-        </Typography>
-        <Button
-          variant="outlined"
-          sx={{ mt: 2 }}
-          onClick={() => window.location.reload()}
-        >
-          Clear Filters
-        </Button>
-      </>
-    ) : (
-      <>
-        <VideocamOffIcon sx={{ fontSize: 60, color: "#9e9e9e", mb: 2 }} />
-        <Typography variant="h6" color="text.secondary" gutterBottom>
-          No data available
-        </Typography>
-        <Button variant="outlined" sx={{ mt: 2 }}>
-          <RefreshIcon />
-        </Button>
-      </>
-    )}
-  </Box>
-);
+import { VideoDataInterface } from "./utils";
 
 const AppContent: React.FC = () => {
   const theme = useTheme();
@@ -100,21 +41,53 @@ const AppContent: React.FC = () => {
     "success" | "info" | "warning" | "error"
   >("info");
   const [loading, setLoading] = React.useState<boolean>(true);
-  const [allData, setAllData] = React.useState<VideoData[]>([]);
-  const [filteredData, setFilteredData] = React.useState<VideoData[]>([]);
+  const [allData, setAllData] = React.useState<VideoDataInterface[]>([]);
+  const [filteredData, setFilteredData] = React.useState<VideoDataInterface[]>(
+    []
+  );
   const [refreshing, setRefreshing] = React.useState<boolean>(false);
   const [startDate, setStartDate] = React.useState<Date | null>(null);
   const [endDate, setEndDate] = React.useState<Date | null>(null);
   const [isFiltered, setIsFiltered] = React.useState<boolean>(false);
+  const [error, setError] = React.useState<string | null>(null);
+
+  // Simulated API call using mock data
+  const fetchVideos = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Simulate API response with mock data
+      const response = {
+        ok: true,
+        json: async () => mockData,
+      };
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch videos");
+      }
+
+      const data = await response.json();
+      setAllData(data);
+      setFilteredData(data);
+      setSnackbarMessage("Data loaded successfully");
+      setSnackbarSeverity("success");
+      setOpenSnackbar(true);
+    } catch (err) {
+      console.error("Error fetching videos:", err);
+      setError(err instanceof Error ? err.message : "Failed to fetch videos");
+      setSnackbarMessage("Failed to load data");
+      setSnackbarSeverity("error");
+      setOpenSnackbar(true);
+    } finally {
+      setLoading(false);
+      setRefreshing(false);
+    }
+  };
 
   React.useEffect(() => {
-    const timer = setTimeout(() => {
-      setAllData(mockData);
-      setFilteredData(mockData);
-      setLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
+    fetchVideos();
   }, []);
 
   React.useEffect(() => {
@@ -159,8 +132,8 @@ const AppContent: React.FC = () => {
     }
   };
 
-  const handleViewVideo = (video: VideoData) => {
-    console.log("omnView Clicked", video);
+  const handleViewVideo = (video: VideoDataInterface) => {
+    console.log("onView Clicked", video);
 
     navigate(`/video-details?id=${video.id}`, { state: { video } });
     setSnackbarMessage(`Viewing video: ${video.name}`);
@@ -168,9 +141,14 @@ const AppContent: React.FC = () => {
     setOpenSnackbar(true);
   };
 
-  const handleSaveVideo = (video: VideoData) => {
+  const handleSaveVideo = (video: VideoDataInterface) => {
     const link = document.createElement("a");
-    link.href = video.downloadUrl;
+    if (video.downloadUrl) {
+      link.href = video.downloadUrl;
+    } else {
+      console.error("Download URL is undefined");
+      return;
+    }
     link.download = `${video.name}.mp4`;
     document.body.appendChild(link);
     link.click();
@@ -187,20 +165,10 @@ const AppContent: React.FC = () => {
 
   const handleRefresh = () => {
     setRefreshing(true);
-    setLoading(true);
     setStartDate(null);
     setEndDate(null);
     setIsFiltered(false);
-
-    setTimeout(() => {
-      setAllData(mockData);
-      setFilteredData(mockData);
-      setRefreshing(false);
-      setLoading(false);
-      setSnackbarMessage("Data refreshed successfully");
-      setSnackbarSeverity("success");
-      setOpenSnackbar(true);
-    }, 1500);
+    fetchVideos();
   };
 
   const handleDateChange = (start: Date | null, end: Date | null) => {
@@ -313,10 +281,39 @@ const AppContent: React.FC = () => {
           </Box>
         </Paper>
 
-        {loading ? (
-          <EmptyState loading={loading} isFiltered={isFiltered} />
+        {error ? (
+          <Box
+            sx={{
+              textAlign: "center",
+              py: 6,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              height: 300,
+              backgroundColor: "#f5f7fa",
+              borderRadius: 3,
+            }}
+          >
+            <Typography variant="h6" color="error" gutterBottom>
+              Error loading data
+            </Typography>
+            <Typography color="text.secondary" sx={{ mb: 2 }}>
+              {error}
+            </Typography>
+            <Button
+              variant="outlined"
+              onClick={fetchVideos}
+              sx={{ mt: 2 }}
+              startIcon={<RefreshIcon />}
+            >
+              Retry
+            </Button>
+          </Box>
+        ) : loading ? (
+          <EmptyStateView loading={loading} isFiltered={isFiltered} />
         ) : filteredData.length === 0 && isFiltered ? (
-          <EmptyState loading={false} isFiltered={true} />
+          <EmptyStateView loading={false} isFiltered={true} />
         ) : (
           <VideoAnalyticsTable
             data={filteredData}

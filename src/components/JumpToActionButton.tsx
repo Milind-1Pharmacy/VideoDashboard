@@ -2,12 +2,12 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-
-interface JumpToActionButtonProps {
-  videoRef: React.RefObject<HTMLVideoElement | null>;
-  timestamp: string;
-  videoStartTime: string;
-}
+import { JumpToActionButtonProps } from "../utils";
+// interface JumpToActionButtonProps {
+//   videoRef: React.RefObject<HTMLVideoElement | null>;
+//   timestamp: string;
+//   videoStartTime: string;
+// }
 
 const JumpToActionButton: React.FC<JumpToActionButtonProps> = ({
   videoRef, // Now receives the ref object

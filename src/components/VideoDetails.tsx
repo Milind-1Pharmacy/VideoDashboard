@@ -25,138 +25,114 @@ import {
 import PeopleIcon from "@mui/icons-material/People";
 import { formatTime } from "../utils/dateUtils";
 import EventsTable from "./commanComponents/EventsTable";
+import { StatusCard } from "./houseOfCards";
+import { VideoDataInterface } from "../utils";
 
-type Gender = "M" | "F";
-type Age = number;
+// type Gender = "M" | "F";
+// type Age = number;
 
-interface VideoEvent {
-  timestamp: string;
-  billNumber: string | null;
-  enquiries: string[];
-  demographics?: [Gender, Age][];
-  orderImgUrl?: string;
-}
+// interface VideoEvent {
+//   timestamp: string;
+//   billNumber: string | null;
+//   enquiries: string[];
+//   demographics?: [Gender, Age][];
+//   orderImgUrl?: string;
+// }
 
-interface VideoData {
-  id: string;
-  name: string;
-  signedUrl: string;
-  startTimestamp: string;
-  endTimestamp: string;
-  numberOfEnquiries: number;
-  numberOfSales: number;
-  transcript: string;
-  events: VideoEvent[];
-}
+// interface VideoDataInterface {
+//   id: string;
+//   name: string;
+//   signedUrl: string;
+//   startTimestamp: string;
+//   endTimestamp: string;
+//   numberOfEnquiries: number;
+//   numberOfSales: number;
+//   transcript: string;
+//   events: VideoEvent[];
+// }
 
 // API function to fetch video details
-const fetchVideoDetails = async (videoId: string): Promise<VideoData> => {
-  // Simulate API call
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        id: videoId,
-        name: "Store Recording - 22/04/2025",
-        signedUrl:
-          "https://1pharmacy.blob.core.windows.net/store-recordings/5000000122/event_videos/2025-04-22/20250422_185240.mp4?sp=r&st=2025-04-21T04:54:48Z&se=2025-05-30T12:54:48Z&spr=https&sv=2024-11-04&sr=c&sig=3G8E%2F8eqqbv%2F8GIIs7A%2Fo4SP4TFxEfTmOkXk6C2cn%2Bg%3D",
-        startTimestamp: "2025-04-22T19:36:00Z",
-        endTimestamp: "2025-04-22T19:39:04Z",
-        numberOfEnquiries: 4,
-        numberOfSales: 2,
-        transcript:
-          "00:00 - Camera activates\n" +
-          "00:15 - Customer enters store\n" +
-          "00:30 - Staff greets customer\n" +
-          "01:05 - Product discussion begins\n" +
-          "01:45 - Bill generated for first sale\n" +
-          "02:30 - Second customer approaches counter\n" +
-          "03:04 - Video ends",
-        events: [
-          {
-            timestamp: "2025-04-22T19:36:15Z", // 00:15
-            billNumber: null,
-            enquiries: ["ENQ001"],
-            demographics: [["M", 32]],
-          },
-          {
-            timestamp: "2025-04-22T19:37:45Z", // 01:45
-            billNumber: "BILL220422001",
-            enquiries: ["ENQ002"],
-            demographics: [["F", 28]],
-            orderImgUrl:
-              "https://5.imimg.com/data5/SELLER/Default/2023/12/369519654/JE/LO/KB/844696/a5-size-bill-book.jpg",
-          },
-          {
-            timestamp: "2025-04-22T19:38:10Z", // 02:10
-            billNumber: null,
-            enquiries: ["ENQ003"],
-            demographics: [["M", 45]],
-          },
-          {
-            timestamp: "2025-04-22T19:38:55Z", // 02:55
-            billNumber: "BILL220422002",
-            enquiries: ["ENQ004", "ENQ005", "ENQ005", "ENQ005"],
-            orderImgUrl:
-              "https://5.imimg.com/data5/SELLER/Default/2023/12/369519654/JE/LO/KB/844696/a5-size-bill-book.jpg",
-            demographics: [
-              ["F", 22],
-              ["M", 30],
-              ["F", 40],
-              ["M", 50],
-            ],
-          },
-        ],
-      });
-    }, 500);
-  });
+const fetchVideoDetails = async (
+  videoId: string
+): Promise<VideoDataInterface> => {
+  const USE_MOCK_DATA = true; 
+  const API_BASE_URL = "https://api.yourservice.com/videos"; 
+
+  if (USE_MOCK_DATA) {
+
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          id: videoId,
+          name: "Store Recording - 22/04/2025",
+          signedUrl:
+            "https://1pharmacy.blob.core.windows.net/store-recordings/5000000122/event_videos/2025-04-22/20250422_185240.mp4?sp=r&st=2025-04-21T04:54:48Z&se=2025-05-30T12:54:48Z&spr=https&sv=2024-11-04&sr=c&sig=3G8E%2F8eqqbv%2F8GIIs7A%2Fo4SP4TFxEfTmOkXk6C2cn%2Bg%3D",
+          startTimestamp: "2025-04-22T19:36:00Z",
+          endTimestamp: "2025-04-22T19:39:04Z",
+          numberOfEnquiries: 4,
+          numberOfSales: 2,
+          transcript:
+            "00:00 - Camera activates\n" +
+            "00:15 - Customer enters store\n" +
+            "00:30 - Staff greets customer\n" +
+            "01:05 - Product discussion begins\n" +
+            "01:45 - Bill generated for first sale\n" +
+            "02:30 - Second customer approaches counter\n" +
+            "03:04 - Video ends",
+          events: [
+            {
+              timestamp: "2025-04-22T19:36:15Z", // 00:15
+              billNumber: null,
+              enquiries: ["ENQ001"],
+              demographics: [["M", 32]],
+            },
+            {
+              timestamp: "2025-04-22T19:37:45Z", // 01:45
+              billNumber: "BILL220422001",
+              enquiries: ["ENQ002"],
+              demographics: [["F", 28]],
+              orderImgUrl:
+                "https://5.imimg.com/data5/SELLER/Default/2023/12/369519654/JE/LO/KB/844696/a5-size-bill-book.jpg",
+            },
+            {
+              timestamp: "2025-04-22T19:38:10Z", // 02:10
+              billNumber: null,
+              enquiries: ["ENQ003"],
+              demographics: [["M", 45]],
+            },
+            {
+              timestamp: "2025-04-22T19:38:55Z", // 02:55
+              billNumber: "BILL220422002",
+              enquiries: ["ENQ004", "ENQ005", "ENQ005", "ENQ005"],
+              orderImgUrl:
+                "https://5.imimg.com/data5/SELLER/Default/2023/12/369519654/JE/LO/KB/844696/a5-size-bill-book.jpg",
+              demographics: [
+                ["F", 22],
+                ["M", 30],
+                ["F", 40],
+                ["M", 50],
+              ],
+            },
+          ],
+        });
+      }, 500);
+    });
+  } else {
+    // Using actual API
+    try {
+      const response = await fetch(`${API_BASE_URL}/${videoId}`);
+
+      if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error("Error fetching video details:", error);
+      throw error;
+    }
+  }
 };
-
-
-// Stat card component
-const StatCard: React.FC<{
-  icon: React.ReactNode;
-  title: string;
-  value: React.ReactNode;
-  bgColor: string;
-  iconColor?: string;
-  variant?: string;
-}> = ({ icon, title, value, bgColor, iconColor, variant }) => {
-  const theme = useTheme();
-  return (
-    <Box
-      sx={{
-        p: 2,
-        borderRadius: 2,
-        bgcolor: bgColor,
-        height: "100%",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
-        {icon}
-        <Typography
-          variant="body1"
-          color="text.secondary"
-          sx={{ ml: "8px", textAlign: "center" }}
-        >
-          {title}
-        </Typography>
-      </Box>
-      <Typography
-        variant={(variant || "subtitle1") as "inherit" | any}
-        sx={{
-          color: iconColor || theme.palette.text.secondary,
-          textAlign: "center",
-          fontWeight: "bold",
-        }}
-      >
-        {value}
-      </Typography>
-    </Box>
-  );
-};
-
 const VideoDetails: React.FC = () => {
   const navigate = useNavigate();
   const theme = useTheme();
@@ -164,7 +140,7 @@ const VideoDetails: React.FC = () => {
   const videoId = searchParams.get("id");
   const videoRef = React.useRef<HTMLVideoElement>(null);
 
-  const [video, setVideo] = React.useState<VideoData | null>(null);
+  const [video, setVideo] = React.useState<VideoDataInterface | null>(null);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
   const [showTranscript, setShowTranscript] = React.useState(false);
@@ -442,13 +418,17 @@ const VideoDetails: React.FC = () => {
               }}
             >
               <EventsTable
-                events={video.events.map((event) => ({
+                events={(video?.events || []).map((event) => ({
                   ...event,
                   billNumber: event.billNumber ?? undefined,
                   timestamp: calculateTimeInVideo(
                     event.timestamp,
                     video.startTimestamp
                   ),
+                  demographics: event.demographics?.map(([gender, age]) => [
+                    gender as string,
+                    age,
+                  ]),
                 }))}
                 jumpToTimestamp={jumpToTimestamp}
               />
@@ -492,7 +472,7 @@ const VideoDetails: React.FC = () => {
               <Grid container spacing={2}>
                 {videoStats.map((stat, index) => (
                   <Grid key={index}>
-                    <StatCard
+                    <StatusCard
                       title={stat.title}
                       value={stat.value}
                       icon={stat.icon}
@@ -521,7 +501,7 @@ const VideoDetails: React.FC = () => {
               <Grid container spacing={2}>
                 {salesStats.map((stat, index) => (
                   <Grid key={index}>
-                    <StatCard
+                    <StatusCard
                       title={stat.title}
                       value={stat.value}
                       icon={stat.icon}
@@ -553,7 +533,7 @@ const VideoDetails: React.FC = () => {
               {/* Demographic stats */}
               <Grid container spacing={2}>
                 <Grid>
-                  {/* <StatCard
+                  {/* <StatusCard
                     title={stat.title}
                     value={stat.value}
                     icon={stat.icon}
@@ -561,10 +541,10 @@ const VideoDetails: React.FC = () => {
                     iconColor={stat.iconColor}
                     variant={stat.variant}
                   /> */}
-                  <StatCard
+                  <StatusCard
                     title="Male Count"
                     value={
-                      video.events
+                      (video.events ?? [])
                         .flatMap((e) => e.demographics || [])
                         .filter((d) => d[0] === "M").length
                     }
@@ -575,10 +555,10 @@ const VideoDetails: React.FC = () => {
                   />
                 </Grid>
                 <Grid>
-                  <StatCard
+                  <StatusCard
                     title="Female Count"
                     value={
-                      video.events
+                      (video.events ?? [])
                         .flatMap((e) => e.demographics || [])
                         .filter((d) => d[0] === "F").length
                     }

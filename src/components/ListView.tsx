@@ -472,8 +472,6 @@ export default function VideoAnalyticsTable({
                                             color: PRIMARY_COLOR,
                                           }}
                                           onClick={(e) => {
-                                            console.log("tootTip clicked");
-
                                             e.stopPropagation();
                                             onView?.(row);
                                           }}

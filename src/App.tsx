@@ -25,6 +25,7 @@ import DonutLargeIcon from "@mui/icons-material/DonutLarge";
 import {
   DateFilterButton,
   EmptyStateView,
+  TruckLoader,
 } from "./components/commanComponents";
 
 import { VideoDataInterface } from "./utils";
@@ -147,7 +148,6 @@ const AppContent: React.FC = () => {
   };
 
   const handleViewVideo = (video: VideoDataInterface) => {
-    console.log("onView Clicked", video);
 
     navigate(`/video-details?id=${video.id}`, { state: { video } });
     setSnackbarMessage(`Viewing video: ${video.name}`);
@@ -360,7 +360,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <Header />
-      <React.Suspense fallback={<div>Loading...</div>}>
+      <React.Suspense fallback={<TruckLoader />}>
         <Routes>
           <Route path="/video-listing" element={<AppContent />} />
           <Route path="/video-details" element={<VideoDetails />} />

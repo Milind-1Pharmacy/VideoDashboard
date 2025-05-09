@@ -24,10 +24,10 @@ import HomeIcon from "@mui/icons-material/Home";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
 import PeopleIcon from "@mui/icons-material/People";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import { heatMapData as defaultMapData } from "../HeatMap";
 import { StatCard } from "./houseOfCards";
 import { useNavigate } from "react-router-dom";
+import { HomeFilled } from "@mui/icons-material";
 
 // Define interfaces for our data structure
 interface Flat {
@@ -187,7 +187,11 @@ const FloorItem = memo(
                   color: "#78909c",
                 }}
               >
-                {isExpanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                {isExpanded ? (
+                  <ExpandLessIcon sx={{ color: "#FFF" }} />
+                ) : (
+                  <ExpandMoreIcon sx={{ color: "#FFF" }} />
+                )}
               </IconButton>
             </Box>
           }
@@ -654,7 +658,7 @@ const ApartmentHeatmap: React.FC = () => {
         </Grid>
         <Grid sx={{ minWidth: "400px" }}>
           <StatCard
-            icon={<PeopleIcon />}
+            icon={<HomeFilled />}
             title="Active Households"
             value={heatMapData.data.activeApartment}
             label="Currently active"
@@ -674,10 +678,10 @@ const ApartmentHeatmap: React.FC = () => {
         </Grid>
         <Grid sx={{ minWidth: "400px" }}>
           <StatCard
-            icon={<TrendingUpIcon />}
-            title="Monthly Growth"
-            value={`${heatMapData.data.percentGrowth}%`}
-            label="vs. last month"
+            icon={<PeopleIcon />}
+            title="Total Customer"
+            value={`465`}
+            label=""
             mainColor="#16A34A"
             lightColor="#DCFCE7"
           />

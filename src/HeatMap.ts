@@ -1,6 +1,6 @@
 export const heatMapData = {
   data: {
-    totalApartment: 1076,
+    totalApartment: 1170,
     activeApartment: 383,
     percentGrowth: 6.75,
     blocks: [

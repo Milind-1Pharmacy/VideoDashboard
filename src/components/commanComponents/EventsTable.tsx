@@ -21,6 +21,8 @@ import {
   DialogContent,
   Dialog,
 } from "@mui/material";
+import { Textarea } from "@mui/joy";
+
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import { Close } from "@mui/icons-material";
@@ -88,6 +90,7 @@ interface EventsTableProps {
     enquiries?: string[];
     demographics?: [string, number][];
     orderImgUrl?: string;
+    summary?: string;
   }>;
   jumpToTimestamp: (timestamp: number) => void;
 }
@@ -100,7 +103,10 @@ const EventsTable = ({ events, jumpToTimestamp }: EventsTableProps) => {
     imageUrl: string;
   } | null>(null);
 
-  const handleTabChange = (_event: React.SyntheticEvent, newValue: number): void => {
+  const handleTabChange = (
+    _event: React.SyntheticEvent,
+    newValue: number
+  ): void => {
     setActiveTab(newValue);
   };
 
@@ -114,7 +120,6 @@ const EventsTable = ({ events, jumpToTimestamp }: EventsTableProps) => {
     if (imageUrl) {
       setSelectedBill({ billNumber, imageUrl });
     } else {
-      console.log(`No image available for bill: ${billNumber}`);
       // You might want to show a snackbar/toast here
     }
   };
@@ -173,6 +178,7 @@ const EventsTable = ({ events, jumpToTimestamp }: EventsTableProps) => {
           <Tab label="Bills" />
           <Tab label="Enquiries" />
           <Tab label="Demographics" />
+          <Tab label="Summary" />
         </Tabs>
       </Box>
 
@@ -491,6 +497,27 @@ const EventsTable = ({ events, jumpToTimestamp }: EventsTableProps) => {
               </TableBody>
             </Table>
           </TableContainer>
+        </TabPanel>
+
+        <TabPanel
+          value={activeTab}
+          index={3}
+          sx={{ display: "flex", justifyContent: "center" }}
+        >
+          <Box
+            sx={{
+              width: "100%",
+              justifyContent: "center",
+            }}
+          >
+            <Textarea
+              sx={{
+                mx: "auto",
+                width: "92%",
+              }}
+              defaultValue={events[0]?.summary ?? ""}
+            />
+          </Box>
         </TabPanel>
       </Box>
     </Paper>

@@ -32,8 +32,8 @@ import { useNavigate } from "react-router-dom";
 // Mock data for the bill details
 const mockData = {
   data: {
-    blockNumber: "A",
-    flatNumber: "102",
+    blockNumber: "B",
+    flatNumber: "1802",
     noOfInvoices: 2,
     totalSalesValue: 1000,
   },
@@ -42,74 +42,151 @@ const mockData = {
 // Mock data for the bill table
 const mockBillData = [
   {
-    id: "BILL-2025-001",
-    customerName: "Raj Sharma",
-    billDate: "2025-04-15",
-    billValue: 450,
+    id: "URM02065",
+    billDate: 1735714616,
+    billValue: 360.0,
+    customerName: "Dr. Jayakrishnan",
+    status: "Paid",
+    videoId: 1001,
+  },
+  {
+    id: "URM02630",
+    billDate: 1736319223,
+    billValue: 531.0,
+    customerName: "Dr. Jayakrishnan",
+    status: "Paid",
+    videoId: 1002,
+  },
+  {
+    id: "URM04526",
+    billDate: 1738327843,
+    billValue: 473.0,
+    customerName: "Dr. Jayakrishnan",
+    status: "Paid",
+    videoId: 1003,
+  },
+  {
+    id: "URM02549",
+    billDate: 1736235927,
+    billValue: 299.0,
+    customerName: "Dr. Jayakrishnan",
+    status: "Paid",
+    videoId: 1004,
+  },
+  {
+    id: "URM04273",
+    billDate: 1738073130,
+    billValue: 620.0,
+    customerName: "Dr. Jayakrishnan",
     status: "Paid",
   },
   {
-    id: "BILL-2025-002",
-    customerName: "Priya Patel",
-    billDate: "2025-04-22",
-    billValue: 550,
-    status: "Pending",
-  },
-  {
-    id: "BILL-2025-003",
-    customerName: "Amit Kumar",
-    billDate: "2025-05-01",
-    billValue: 320,
+    id: "URM01723",
+    billDate: 1735279688,
+    billValue: 1216.0,
+    customerName: "Dr. Jayakrishnan",
     status: "Paid",
   },
   {
-    id: "BILL-2025-004",
-    customerName: "Neha Singh",
-    billDate: "2025-05-07",
-    billValue: 680,
-    status: "Processing",
+    id: "URM02293",
+    billDate: 1735921655,
+    billValue: 195.0,
+    customerName: "Dr. Jayakrishnan",
+    status: "Paid",
   },
   {
-    id: "BILL-2025-005",
-    customerName: "Vikram Mehta",
-    billDate: "2025-05-08",
-    billValue: 210,
-    status: "Pending",
+    id: "URM03508",
+    billDate: 1737295876,
+    billValue: 769.0,
+    customerName: "Dr. Jayakrishnan",
+    status: "Paid",
   },
   {
-    id: "BILL-2025-005",
-    customerName: "Vikram Mehta",
-    billDate: "2025-05-08",
-    billValue: 210,
-    status: "Pending",
+    id: "URM04038",
+    billDate: 1737876268,
+    billValue: 899.0,
+    customerName: "Dr. Jayakrishnan",
+    status: "Paid",
   },
   {
-    id: "BILL-2025-005",
-    customerName: "Vikram Mehta",
-    billDate: "2025-05-08",
-    billValue: 210,
-    status: "Pending",
+    id: "URM01430",
+    billDate: 1734880303,
+    billValue: 321.0,
+    customerName: "Dr. Jayakrishnan",
+    status: "Paid",
   },
   {
-    id: "BILL-2025-005",
-    customerName: "Vikram Mehta",
-    billDate: "2025-05-08",
-    billValue: 210,
-    status: "Pending",
+    id: "URM03472",
+    billDate: 1737273564,
+    billValue: 155.0,
+    customerName: "Dr. Jayakrishnan",
+    status: "Paid",
   },
   {
-    id: "BILL-2025-005",
-    customerName: "Vikram Mehta",
-    billDate: "2025-05-08",
-    billValue: 210,
-    status: "Pending",
+    id: "URM04655",
+    billDate: 1738482911,
+    billValue: 460.0,
+    customerName: "Dr. Jayakrishnan",
+    status: "Paid",
+  },
+  {
+    id: "URM02595",
+    billDate: 1736260620,
+    billValue: 313.0,
+    customerName: "Dr. Jayakrishnan",
+    status: "Paid",
+  },
+  {
+    id: "URM03586",
+    billDate: 1737381086,
+    billValue: 728.0,
+    customerName: "Dr. Jayakrishnan",
+    status: "Paid",
+  },
+  {
+    id: "URM09221",
+    billDate: 1742908996,
+    billValue: 175.0,
+    customerName: "Dr. Sirisha",
+    status: "Paid",
+  },
+  {
+    id: "URM01572",
+    billDate: 1735052345,
+    billValue: 284.0,
+    customerName: "Dr. Sirisha",
+    status: "Paid",
+  },
+  {
+    id: "URM02321",
+    billDate: 1745853004,
+    billValue: 127.0,
+    customerName: "Dr. Sirisha",
+    status: "Paid",
   },
 ];
 
 const mockDataWithCutomers = {
   bills: mockBillData,
-  totalCustomers: "4",
+  totalCustomers: "2",
 };
+
+export const formatEpochToReadable = (epoch: number): string => {
+  const isInSeconds = epoch.toString().length === 10;
+  const date = new Date(isInSeconds ? epoch * 1000 : epoch);
+
+  const day = date.getDate();
+  const month = date.toLocaleString("en-US", { month: "short" }); // Jan, Feb, etc.
+  const year = date.getFullYear();
+
+  let hours = date.getHours();
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+  const ampm = hours >= 12 ? "pm" : "am";
+  hours = hours % 12 || 12;
+
+  return `${day}-${month}-${year}, ${hours}:${minutes}${ampm}`;
+};
+
 // Enhanced StatCard component with animation and improved styling
 const EnhancedStatCard: React.FC<{
   icon: React.ReactNode;
@@ -268,12 +345,10 @@ const BillDetails = () => {
   }, []);
 
   // Function to handle the "View Details" button click
-  const handleViewDetails = (billId: any) => {
-    const videoId = 1001;
-    console.log(`Navigating to bill details for: ${billId}`);
+  const handleViewDetails = (bill: any) => {
 
     // Add your navigation logic here
-    navigate(`/video-details?id=${videoId}`, { state: { videoId } });
+    navigate(`/video-details?id=${bill.videoId}`, { state: { videoId: bill.videoId } });
   };
 
   // Calculate totals for summary
@@ -574,7 +649,7 @@ const BillDetails = () => {
                       }}
                       onMouseEnter={() => setHoveredRow(bill.id)}
                       onMouseLeave={() => setHoveredRow(null)}
-                      onClick={() => handleViewDetails(bill.id)}
+                      onClick={() => handleViewDetails(bill)}
                     >
                       <TableCell
                         component="th"
@@ -627,14 +702,7 @@ const BillDetails = () => {
                             sx={{ color: "#64748B" }}
                           />
                           <Typography sx={{ color: "#64748B" }}>
-                            {new Date(bill.billDate).toLocaleDateString(
-                              "en-US",
-                              {
-                                day: "2-digit",
-                                month: "short",
-                                year: "numeric",
-                              }
-                            )}
+                            {formatEpochToReadable(bill.billDate)}
                           </Typography>
                         </Box>
                       </TableCell>
@@ -666,7 +734,7 @@ const BillDetails = () => {
                             startIcon={<VisibilityOutlined />}
                             onClick={(e) => {
                               e.stopPropagation();
-                              handleViewDetails(bill.id);
+                              handleViewDetails(bill);
                             }}
                             sx={{
                               borderColor: "#CBD5E1",

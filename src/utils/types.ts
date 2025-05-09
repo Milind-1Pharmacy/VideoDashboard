@@ -12,6 +12,7 @@ export interface VideoDataInterface {
   signedUrl?: string;
   transcript?: string;
   events?: VideoEventInterface[];
+  summary?: string;
 }
 export interface ColumnInterface {
   id:

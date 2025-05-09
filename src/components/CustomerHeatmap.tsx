@@ -139,12 +139,14 @@ const FloorItem = memo(
   ({
     floor,
     floorIndex,
+    totalFloors,
     isExpanded,
     toggleFloor,
     onFlatClick,
   }: {
     floor: Floor;
     floorIndex: number;
+    totalFloors: number;
     blockTitle: string;
     isExpanded: boolean;
     toggleFloor: () => void;
@@ -216,7 +218,7 @@ const FloorItem = memo(
                     color: "#455a64",
                   }}
                 >
-                  {floorIndex + 1}
+                  {totalFloors - floorIndex}
                 </Box>
                 {floor.title}
               </Typography>
@@ -265,6 +267,20 @@ const BlockComponent = memo(
     toggleFloor: (blockTitle: string, floorTitle: string) => void;
     handleFlatClick: (flat: Flat) => void;
   }) => {
+    // Create a reversed copy of the floors array to avoid mutating the original
+    const reversedFloors = [...block.floors].reverse();
+
+    // Create a ref to scroll to bottom on initial render
+    const floorsContainerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+      // Scroll to bottom when component mounts
+      if (floorsContainerRef.current) {
+        floorsContainerRef.current.scrollTop =
+          floorsContainerRef.current.scrollHeight;
+      }
+    }, []);
+
     return (
       <Paper
         ref={blockRef}
@@ -369,19 +385,19 @@ const BlockComponent = memo(
 
         {/* Floors */}
         <Box
+          ref={floorsContainerRef}
           sx={{
             maxHeight: "400px",
-            overflowY: "scroll",
-            display: "flex",
-            flexDirection: "column-reverse",
+            overflowY: "auto",
           }}
         >
-          <List sx={{ pb: 16, overflowY: "scroll" }}>
-            {block.floors.map((floor, floorIndex) => (
+          <List>
+            {reversedFloors.map((floor, ind) => (
               <FloorItem
                 key={floor.title}
                 floor={floor}
-                floorIndex={floorIndex}
+                floorIndex={ind}
+                totalFloors={block.floors.length}
                 blockTitle={block.title}
                 isExpanded={!!expandedFloors[`${block.title}-${floor.title}`]}
                 toggleFloor={() => toggleFloor(block.title, floor.title)}

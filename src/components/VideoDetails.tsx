@@ -229,6 +229,63 @@ const videoMocks: { [key: string]: any } = {
       },
     ],
   },
+  'video_101': {
+    id: "101",
+    name: "Store Recording - 22/04/2025",
+    signedUrl:
+      "https://1pharmacy.blob.core.windows.net/store-recordings/5000000122/event_videos/2025-04-22/20250422_185240.mp4?sp=r&st=2025-04-21T04:54:48Z&se=2025-05-30T12:54:48Z&spr=https&sv=2024-11-04&sr=c&sig=3G8E%2F8eqqbv%2F8GIIs7A%2Fo4SP4TFxEfTmOkXk6C2cn%2Bg%3D",
+    startTimestamp: "2025-04-22T19:36:00Z",
+    endTimestamp: "2025-04-22T19:39:04Z",
+    numberOfEnquiries: 4,
+    numberOfSales: 2,
+    transcript:
+      "00:00 - Camera activates\n" +
+      "00:15 - Customer enters store\n" +
+      "00:30 - Staff greets customer\n" +
+      "01:05 - Product discussion begins\n" +
+      "01:45 - Bill generated for first sale\n" +
+      "02:30 - Second customer approaches counter\n" +
+      "03:04 - Video ends",
+
+    // bill
+    // enq
+    // demo
+    events: [
+      {
+        timestamp: "2025-04-22T19:36:15Z", // 00:15
+        billNumber: null,
+        enquiries: ["ENQ001"],
+        demographics: [["M", 32]],
+      },
+      {
+        timestamp: "2025-04-22T19:37:45Z", // 01:45
+        billNumber: "BILL220422001",
+        enquiries: ["ENQ002"],
+        demographics: [["F", 28]],
+        orderImgUrl:
+          "https://5.imimg.com/data5/SELLER/Default/2023/12/369519654/JE/LO/KB/844696/a5-size-bill-book.jpg",
+      },
+      {
+        timestamp: "2025-04-22T19:38:10Z", // 02:10
+        billNumber: null,
+        enquiries: ["ENQ003"],
+        demographics: [["M", 45]],
+      },
+      {
+        timestamp: "2025-04-22T19:38:55Z", // 02:55
+        billNumber: "BILL220422002",
+        enquiries: ["ENQ004", "ENQ005", "ENQ005", "ENQ005"],
+        orderImgUrl:
+          "https://5.imimg.com/data5/SELLER/Default/2023/12/369519654/JE/LO/KB/844696/a5-size-bill-book.jpg",
+        demographics: [
+          ["F", 22],
+          ["M", 30],
+          ["F", 40],
+          ["M", 50],
+        ],
+      },
+    ],
+  },
 };
 
 // type Gender = "M" | "F";

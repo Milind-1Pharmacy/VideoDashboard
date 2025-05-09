@@ -346,9 +346,10 @@ const BillDetails = () => {
 
   // Function to handle the "View Details" button click
   const handleViewDetails = (bill: any) => {
-
     // Add your navigation logic here
-    navigate(`/video-details?id=${bill.videoId}`, { state: { videoId: bill.videoId } });
+    navigate(`/video-details?id=${bill.videoId}`, {
+      state: { videoId: bill.videoId },
+    });
   };
 
   // Calculate totals for summary
@@ -364,8 +365,8 @@ const BillDetails = () => {
   return (
     <Box sx={{ p: 3, bgcolor: "#F8FAFC" }}>
       {/* Page Header */}
-      <Box sx={{ mb: 4 }}>
-        <Typography
+
+      {/* <Typography
           variant="h4"
           sx={{
             fontWeight: 700,
@@ -389,8 +390,7 @@ const BillDetails = () => {
         >
           Track and manage your billing information with our comprehensive
           dashboard. View all transactions and payment statuses at a glance.
-        </Typography>
-      </Box>
+        </Typography> */}
 
       {/* Stats Cards */}
       <Grid
@@ -512,7 +512,7 @@ const BillDetails = () => {
           </Box> */}
         </Box>
 
-        <TableContainer sx={{ maxHeight: 480 }}>
+        <TableContainer sx={{ maxHeight: 560 }}>
           <Table stickyHeader>
             <TableHead>
               <TableRow>

@@ -79,6 +79,10 @@ const fetchVideoDetails = async (
             "01:45 - Bill generated for first sale\n" +
             "02:30 - Second customer approaches counter\n" +
             "03:04 - Video ends",
+
+            // bill
+            // enq
+            // demo
           events: [
             {
               timestamp: "2025-04-22T19:36:15Z", // 00:15

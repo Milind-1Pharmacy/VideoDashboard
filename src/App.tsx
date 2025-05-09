@@ -6,7 +6,6 @@ import {
   Route,
   useNavigate,
 } from "react-router-dom";
-import VideoAnalyticsTable from "./components/ListView";
 import {
   Snackbar,
   Alert,
@@ -27,8 +26,23 @@ import {
   DateFilterButton,
   EmptyStateView,
 } from "./components/commanComponents";
-import VideoDetails from "./components/VideoDetails";
+
 import { VideoDataInterface } from "./utils";
+
+const CustomerHeatmap = React.lazy(() =>
+  import("./components/CustomerHeatmap").then((m) => ({
+    default: m.default,
+  }))
+);
+const VideoAnalyticsTable = React.lazy(() =>
+  import("./components/ListView").then((m) => ({ default: m.default }))
+);
+const VideoDetails = React.lazy(() =>
+  import("./components/VideoDetails").then((m) => ({ default: m.default }))
+);
+const BillDetails = React.lazy(() =>
+  import("./components/BillDetails").then((m) => ({ default: m.default }))
+);
 
 const AppContent: React.FC = () => {
   const theme = useTheme();
@@ -346,10 +360,14 @@ const App: React.FC = () => {
   return (
     <Router>
       <Header />
-      <Routes>
-        <Route path="/" element={<AppContent />} />
-        <Route path="/video-details" element={<VideoDetails />} />
-      </Routes>
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/video-listing" element={<AppContent />} />
+          <Route path="/video-details" element={<VideoDetails />} />
+          <Route path="/" element={<CustomerHeatmap />} />
+          <Route path="/bill-details" element={<BillDetails />} />
+        </Routes>
+      </React.Suspense>
     </Router>
   );
 };

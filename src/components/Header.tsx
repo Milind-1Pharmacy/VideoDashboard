@@ -1,15 +1,13 @@
-import {
-  AppBar,
-  Typography,
-  Box,
-} from "@mui/material";
+import { AppBar, Typography, Box, Button } from "@mui/material";
 
 import VideocamIcon from "@mui/icons-material/Videocam";
+import { useNavigate } from "react-router-dom";
 
 // Define the primary color
 const PRIMARY_COLOR = "#2e6acf";
 
 export const Header = () => {
+  const navigate = useNavigate();
   return (
     <AppBar
       position="sticky"
@@ -52,6 +50,19 @@ export const Header = () => {
             Video Analytics
           </Typography>
         </Box>
+        <Button
+          sx={{
+            bgcolor: PRIMARY_COLOR,
+            margin: 1,
+            border: "1px solid #2e6acf",
+            color: "white",
+          }}
+          onClick={() => {
+            navigate("/video-listing");
+          }}
+        >
+          Video Listing
+        </Button>
       </Box>
     </AppBar>
   );

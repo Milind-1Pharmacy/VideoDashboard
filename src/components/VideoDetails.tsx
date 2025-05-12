@@ -500,6 +500,9 @@ const VideoDetails: React.FC = () => {
     );
   }
 
+  // console.log("hello");
+  
+
   return (
     <Box
       sx={{

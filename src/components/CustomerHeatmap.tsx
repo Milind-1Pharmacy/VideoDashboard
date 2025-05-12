@@ -269,16 +269,13 @@ const BlockComponent = memo(
     blockRef: (element: HTMLDivElement | null) => void;
     expandedFloors: Record<string, boolean>;
     toggleFloor: (blockTitle: string, floorTitle: string) => void;
-    handleFlatClick: (flat: Flat) => void;
+    handleFlatClick: (flat: Flat, block: Block, floor: Floor) => void;
   }) => {
-    // Create a reversed copy of the floors array to avoid mutating the original
     const reversedFloors = [...block.floors].reverse();
 
-    // Create a ref to scroll to bottom on initial render
     const floorsContainerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-      // Scroll to bottom when component mounts
       if (floorsContainerRef.current) {
         floorsContainerRef.current.scrollTop =
           floorsContainerRef.current.scrollHeight;
@@ -405,7 +402,7 @@ const BlockComponent = memo(
                 blockTitle={block.title}
                 isExpanded={!!expandedFloors[`${block.title}-${floor.title}`]}
                 toggleFloor={() => toggleFloor(block.title, floor.title)}
-                onFlatClick={handleFlatClick}
+                onFlatClick={(flat) => handleFlatClick(flat, block, floor)}
               />
             ))}
           </List>
@@ -555,9 +552,20 @@ const ApartmentHeatmap: React.FC = () => {
 
   // Handle flat click based on conversion rate - memoized
   const handleFlatClick = useCallback(
-    (flat: Flat) => {
+    (flat: Flat, block: Block, floor: Floor) => {
       if (flat.conversion > 0) {
-        navigate("/bill-details");
+        console.log(
+          flat.title,
+          block.title.split(" ")[1],
+          floor.title.split(" ")[1]
+        );
+
+        const BlockId = block.title.split(" ")[1];
+        const FloorId = floor.title.split(" ")[1];
+
+        navigate(
+          `/bill-details?blockId=${BlockId}&floorId=${FloorId}&flatId=${flat.title}`
+        );
         showSnackbar(`Navigating to details for ${flat.title}`, "success");
       } else {
         showSnackbar(`No customers from ${flat.title}`, "warning");
@@ -646,7 +654,7 @@ const ApartmentHeatmap: React.FC = () => {
         spacing={2}
         sx={{ mb: 4, display: "flex", justifyContent: "flex-start" }}
       >
-        <Grid sx={{ minWidth: "400px" }}>
+        <Grid sx={{ minWidth: "20%" }}>
           <StatCard
             icon={<ApartmentIcon />}
             title="Total Households"
@@ -656,7 +664,7 @@ const ApartmentHeatmap: React.FC = () => {
             lightColor="#E6EEF9"
           />
         </Grid>
-        <Grid sx={{ minWidth: "400px" }}>
+        <Grid sx={{ minWidth: "20%" }}>
           <StatCard
             icon={<HomeFilled />}
             title="Active Households"
@@ -666,7 +674,7 @@ const ApartmentHeatmap: React.FC = () => {
             lightColor="#F3EAFF"
           />
         </Grid>
-        <Grid sx={{ minWidth: "400px" }}>
+        <Grid sx={{ minWidth: "20%" }}>
           <StatCard
             icon={<EqualizerIcon />}
             title="Conversion Ratio"
@@ -676,7 +684,7 @@ const ApartmentHeatmap: React.FC = () => {
             lightColor="#E0F7FF"
           />
         </Grid>
-        <Grid sx={{ minWidth: "400px" }}>
+        <Grid sx={{ minWidth: "20%" }}>
           <StatCard
             icon={<PeopleIcon />}
             title="Total Customer"
@@ -828,7 +836,9 @@ const ApartmentHeatmap: React.FC = () => {
               blockRef={(el: any) => registerBlockRef(block.title, el)}
               expandedFloors={expandedFloors}
               toggleFloor={toggleFloor}
-              handleFlatClick={handleFlatClick}
+              handleFlatClick={(flat: Flat, block: Block, floor: Floor) =>
+                handleFlatClick(flat, block, floor)
+              }
             />
           );
         })}

@@ -395,12 +395,12 @@ const BillDetails = () => {
       {/* Stats Cards */}
       <Grid
         container
-        spacing={3}
+        spacing={2}
         sx={{
           mb: 4,
         }}
       >
-        <Grid sx={{ minWidth: "360px" }}>
+        <Grid sx={{ minWidth: "22%" }}>
           <EnhancedStatCard
             icon={<PeopleOutline />}
             title="Flat Details"
@@ -410,7 +410,7 @@ const BillDetails = () => {
             lightColor="#F3EAFF"
           />
         </Grid>
-        <Grid sx={{ minWidth: "360px" }}>
+        <Grid sx={{ minWidth: "22%" }}>
           <EnhancedStatCard
             icon={<CurrencyRupee />}
             title="Sales Generated"
@@ -420,7 +420,7 @@ const BillDetails = () => {
             lightColor="#E0F7FF"
           />
         </Grid>
-        <Grid sx={{ minWidth: "360px" }}>
+        <Grid sx={{ minWidth: "22%" }}>
           <EnhancedStatCard
             icon={<PeopleOutline />}
             title="Number of Customers"
@@ -430,7 +430,7 @@ const BillDetails = () => {
             lightColor="#FCE7F3"
           />
         </Grid>
-        <Grid sx={{ minWidth: "360px" }}>
+        <Grid sx={{ minWidth: "22%" }}>
           <EnhancedStatCard
             icon={<ReceiptLongTwoTone />}
             title="Invoice Growth"

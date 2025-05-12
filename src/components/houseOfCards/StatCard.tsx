@@ -154,19 +154,21 @@ const StatCard: React.FC<StatCardProps> = ({
             boxShadow: `0 8px 16px -4px ${alpha(mainColor, 0.4)}`,
           },
         },
-        "&::before": {
-          content: '""',
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: "6px",
-          background: `linear-gradient(to right, ${mainColor}, ${alpha(
-            mainColor,
-            0.7
-          )})`,
-          borderRadius: "4px 4px 0 0",
-        },
+        // "&::before": {
+        //   content: '""',
+        //   position: "absolute",
+        //   top: 0,
+        //   left: 0,
+        //   right: 0,
+        //   height: "6px",
+        //   background: `linear-gradient(to right, ${mainColor}, ${alpha(
+        //     mainColor,
+        //     0.7
+        //   )})`,
+        //   borderRadius: "4px 4px 0 0",
+        // },
+        // outlineTopColor: `${mainColor}`,
+        // outlineTopWidth: 8,
       }}
     >
       <CardContent
@@ -181,7 +183,7 @@ const StatCard: React.FC<StatCardProps> = ({
           alignItems="center"
           justifyContent="space-between"
         >
-          <Grid >
+          <Grid>
             <Typography
               variant="subtitle1"
               sx={{
@@ -272,10 +274,7 @@ const StatCard: React.FC<StatCardProps> = ({
             )}
           </Grid>
 
-          <Grid
-
-            sx={{ display: "flex", justifyContent: "flex-end" }}
-          >
+          <Grid sx={{ display: "flex", justifyContent: "flex-end" }}>
             <Box
               className="icon-container"
               sx={{

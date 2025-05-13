@@ -688,8 +688,8 @@ const ApartmentHeatmap: React.FC = () => {
           <StatCard
             icon={<PeopleIcon />}
             title="Total Customer"
-            value={`465`}
-            label=""
+            value={`517`}
+            label="Presently Active"
             mainColor="#16A34A"
             lightColor="#DCFCE7"
           />

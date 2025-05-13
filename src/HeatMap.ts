@@ -1,7 +1,7 @@
 export const heatMapData = {
   data: {
     totalApartment: 1170,
-    activeApartment: 383,
+    activeApartment: 411,
     percentGrowth: 6.75,
     blocks: [
       {
@@ -61,6 +61,32 @@ export const heatMapData = {
             ],
           },
           {
+            title: "Floor 3",
+            conversion: 20,
+            flats: [
+              {
+                title: "301",
+                conversion: 0,
+              },
+              {
+                title: "302",
+                conversion: 0,
+              },
+              {
+                title: "303",
+                conversion: 100,
+              },
+              {
+                title: "304",
+                conversion: 0,
+              },
+              {
+                title: "305",
+                conversion: 0,
+              },
+            ],
+          },
+          {
             title: "Floor 5",
             conversion: 20,
             flats: [
@@ -88,7 +114,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 7",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "701",
@@ -196,7 +222,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 12",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "1201",
@@ -278,7 +304,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 15",
-            conversion: 50,
+            conversion: 60,
             flats: [
               {
                 title: "1501",
@@ -336,11 +362,11 @@ export const heatMapData = {
       },
       {
         title: "Block B",
-        conversion: 35,
+        conversion: 44,
         floors: [
           {
             title: "Floor 1",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "101",
@@ -370,7 +396,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 2",
-            conversion: 67,
+            conversion: 80,
             flats: [
               {
                 title: "201",
@@ -400,7 +426,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 3",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "301",
@@ -430,7 +456,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 8",
-            conversion: 50,
+            conversion: 60,
             flats: [
               {
                 title: "801",
@@ -460,7 +486,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 10",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "1001",
@@ -490,7 +516,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 11",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "1101",
@@ -520,7 +546,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 13",
-            conversion: 17,
+            conversion: 40,
             flats: [
               {
                 title: "1301",
@@ -544,6 +570,10 @@ export const heatMapData = {
               },
               {
                 title: "1306",
+                conversion: 100,
+              },
+              {
+                title: "1308",
                 conversion: 100,
               },
             ],
@@ -576,7 +606,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 18",
-            conversion: 20,
+            conversion: 40,
             flats: [
               {
                 title: "1801",
@@ -598,17 +628,21 @@ export const heatMapData = {
                 title: "1805",
                 conversion: 0,
               },
+              {
+                title: "1806",
+                conversion: 100,
+              },
             ],
           },
         ],
       },
       {
         title: "Block C",
-        conversion: 39,
+        conversion: 43,
         floors: [
           {
             title: "Floor 1",
-            conversion: 50,
+            conversion: 60,
             flats: [
               {
                 title: "101",
@@ -664,7 +698,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 3",
-            conversion: 50,
+            conversion: 60,
             flats: [
               {
                 title: "301",
@@ -798,7 +832,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 9",
-            conversion: 67,
+            conversion: 80,
             flats: [
               {
                 title: "901",
@@ -828,7 +862,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 10",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "1001",
@@ -910,7 +944,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 14",
-            conversion: 57,
+            conversion: 80,
             flats: [
               {
                 title: "1401",
@@ -970,7 +1004,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 16",
-            conversion: 43,
+            conversion: 60,
             flats: [
               {
                 title: "1601",
@@ -1030,7 +1064,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 18",
-            conversion: 29,
+            conversion: 40,
             flats: [
               {
                 title: "1801",
@@ -1066,7 +1100,7 @@ export const heatMapData = {
       },
       {
         title: "Block D",
-        conversion: 39,
+        conversion: 52,
         floors: [
           {
             title: "Floor 1",
@@ -1096,7 +1130,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 2",
-            conversion: 43,
+            conversion: 60,
             flats: [
               {
                 title: "201",
@@ -1130,7 +1164,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 3",
-            conversion: 57,
+            conversion: 80,
             flats: [
               {
                 title: "301",
@@ -1164,7 +1198,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 4",
-            conversion: 43,
+            conversion: 80,
             flats: [
               {
                 title: "401",
@@ -1194,11 +1228,15 @@ export const heatMapData = {
                 title: "407",
                 conversion: 100,
               },
+              {
+                title: "408",
+                conversion: 100,
+              },
             ],
           },
           {
             title: "Floor 5",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "501",
@@ -1254,7 +1292,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 7",
-            conversion: 43,
+            conversion: 60,
             flats: [
               {
                 title: "701",
@@ -1314,7 +1352,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 9",
-            conversion: 43,
+            conversion: 60,
             flats: [
               {
                 title: "901",
@@ -1348,7 +1386,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 10",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "1001",
@@ -1378,7 +1416,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 11",
-            conversion: 43,
+            conversion: 80,
             flats: [
               {
                 title: "1101",
@@ -1405,6 +1443,10 @@ export const heatMapData = {
                 conversion: 100,
               },
               {
+                title: "1107",
+                conversion: 100,
+              },
+              {
                 title: "1108",
                 conversion: 100,
               },
@@ -1412,7 +1454,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 12",
-            conversion: 43,
+            conversion: 60,
             flats: [
               {
                 title: "1201",
@@ -1446,7 +1488,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 13",
-            conversion: 29,
+            conversion: 40,
             flats: [
               {
                 title: "1301",
@@ -1480,7 +1522,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 14",
-            conversion: 43,
+            conversion: 60,
             flats: [
               {
                 title: "1401",
@@ -1514,7 +1556,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 15",
-            conversion: 57,
+            conversion: 80,
             flats: [
               {
                 title: "1501",
@@ -1548,7 +1590,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 16",
-            conversion: 50,
+            conversion: 60,
             flats: [
               {
                 title: "1601",
@@ -1578,7 +1620,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 17",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "1701",
@@ -1608,7 +1650,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 18",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "1801",
@@ -1640,11 +1682,11 @@ export const heatMapData = {
       },
       {
         title: "Block E",
-        conversion: 33,
+        conversion: 45,
         floors: [
           {
             title: "Floor 1",
-            conversion: 33,
+            conversion: 60,
             flats: [
               {
                 title: "101",
@@ -1652,7 +1694,7 @@ export const heatMapData = {
               },
               {
                 title: "102",
-                conversion: 0,
+                conversion: 100,
               },
               {
                 title: "103",
@@ -1674,7 +1716,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 3",
-            conversion: 50,
+            conversion: 60,
             flats: [
               {
                 title: "301",
@@ -1704,7 +1746,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 4",
-            conversion: 29,
+            conversion: 40,
             flats: [
               {
                 title: "401",
@@ -1738,7 +1780,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 5",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "501",
@@ -1768,7 +1810,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 6",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "601",
@@ -1850,7 +1892,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 9",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "901",
@@ -1932,7 +1974,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 13",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "1301",
@@ -1962,7 +2004,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 14",
-            conversion: 17,
+            conversion: 60,
             flats: [
               {
                 title: "1401",
@@ -1985,6 +2027,14 @@ export const heatMapData = {
                 conversion: 0,
               },
               {
+                title: "1406",
+                conversion: 100,
+              },
+              {
+                title: "1407",
+                conversion: 100,
+              },
+              {
                 title: "1408",
                 conversion: 100,
               },
@@ -1992,7 +2042,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 15",
-            conversion: 57,
+            conversion: 100,
             flats: [
               {
                 title: "1501",
@@ -2015,6 +2065,10 @@ export const heatMapData = {
                 conversion: 0,
               },
               {
+                title: "1506",
+                conversion: 100,
+              },
+              {
                 title: "1507",
                 conversion: 100,
               },
@@ -2026,7 +2080,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 17",
-            conversion: 71,
+            conversion: 120,
             flats: [
               {
                 title: "1701",
@@ -2056,13 +2110,17 @@ export const heatMapData = {
                 title: "1707",
                 conversion: 100,
               },
+              {
+                title: "1708",
+                conversion: 100,
+              },
             ],
           },
         ],
       },
       {
         title: "Block F",
-        conversion: 41,
+        conversion: 46,
         floors: [
           {
             title: "Floor 1",
@@ -2118,7 +2176,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 4",
-            conversion: 67,
+            conversion: 80,
             flats: [
               {
                 title: "401",
@@ -2174,7 +2232,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 7",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "701",
@@ -2256,7 +2314,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 11",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "1101",
@@ -2286,7 +2344,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 12",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "1201",
@@ -2316,11 +2374,11 @@ export const heatMapData = {
           },
           {
             title: "Floor 14",
-            conversion: 50,
+            conversion: 80,
             flats: [
               {
                 title: "1401",
-                conversion: 0,
+                conversion: 100,
               },
               {
                 title: "1402",
@@ -2346,7 +2404,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 15",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "1501",
@@ -2404,11 +2462,11 @@ export const heatMapData = {
       },
       {
         title: "Block G",
-        conversion: 33,
+        conversion: 36,
         floors: [
           {
             title: "Floor 1",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "101",
@@ -2438,7 +2496,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 2",
-            conversion: 50,
+            conversion: 60,
             flats: [
               {
                 title: "201",
@@ -2468,7 +2526,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 3",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "301",
@@ -2498,11 +2556,11 @@ export const heatMapData = {
           },
           {
             title: "Floor 4",
-            conversion: 20,
+            conversion: 40,
             flats: [
               {
                 title: "401",
-                conversion: 0,
+                conversion: 100,
               },
               {
                 title: "402",
@@ -2601,6 +2659,32 @@ export const heatMapData = {
             ],
           },
           {
+            title: "Floor 8",
+            conversion: 20,
+            flats: [
+              {
+                title: "801",
+                conversion: 0,
+              },
+              {
+                title: "802",
+                conversion: 0,
+              },
+              {
+                title: "803",
+                conversion: 0,
+              },
+              {
+                title: "804",
+                conversion: 0,
+              },
+              {
+                title: "805",
+                conversion: 100,
+              },
+            ],
+          },
+          {
             title: "Floor 9",
             conversion: 20,
             flats: [
@@ -2628,7 +2712,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 10",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "1001",
@@ -2710,7 +2794,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 13",
-            conversion: 50,
+            conversion: 80,
             flats: [
               {
                 title: "1301",
@@ -2733,7 +2817,37 @@ export const heatMapData = {
                 conversion: 100,
               },
               {
+                title: "1306",
+                conversion: 100,
+              },
+              {
                 title: "1307",
+                conversion: 100,
+              },
+            ],
+          },
+          {
+            title: "Floor 14",
+            conversion: 20,
+            flats: [
+              {
+                title: "1401",
+                conversion: 0,
+              },
+              {
+                title: "1402",
+                conversion: 0,
+              },
+              {
+                title: "1403",
+                conversion: 0,
+              },
+              {
+                title: "1404",
+                conversion: 0,
+              },
+              {
+                title: "1405",
                 conversion: 100,
               },
             ],
@@ -2794,11 +2908,11 @@ export const heatMapData = {
       },
       {
         title: "Block H",
-        conversion: 36,
+        conversion: 45,
         floors: [
           {
             title: "Floor 1",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "101",
@@ -2854,7 +2968,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 3",
-            conversion: 57,
+            conversion: 80,
             flats: [
               {
                 title: "301",
@@ -2888,7 +3002,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 4",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "401",
@@ -2918,7 +3032,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 5",
-            conversion: 43,
+            conversion: 80,
             flats: [
               {
                 title: "501",
@@ -2934,7 +3048,7 @@ export const heatMapData = {
               },
               {
                 title: "504",
-                conversion: 0,
+                conversion: 100,
               },
               {
                 title: "505",
@@ -2978,7 +3092,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 7",
-            conversion: 38,
+            conversion: 60,
             flats: [
               {
                 title: "701",
@@ -3016,7 +3130,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 8",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "801",
@@ -3046,7 +3160,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 9",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "901",
@@ -3076,7 +3190,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 10",
-            conversion: 43,
+            conversion: 60,
             flats: [
               {
                 title: "1001",
@@ -3110,7 +3224,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 12",
-            conversion: 67,
+            conversion: 80,
             flats: [
               {
                 title: "1201",
@@ -3166,7 +3280,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 14",
-            conversion: 50,
+            conversion: 60,
             flats: [
               {
                 title: "1401",
@@ -3196,7 +3310,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 15",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "1501",
@@ -3254,11 +3368,11 @@ export const heatMapData = {
       },
       {
         title: "Block I",
-        conversion: 36,
+        conversion: 44,
         floors: [
           {
             title: "Floor 1",
-            conversion: 50,
+            conversion: 40,
             flats: [
               {
                 title: "101",
@@ -3280,15 +3394,11 @@ export const heatMapData = {
                 title: "105",
                 conversion: 0,
               },
-              {
-                title: "108",
-                conversion: 100,
-              },
             ],
           },
           {
             title: "Floor 2",
-            conversion: 50,
+            conversion: 60,
             flats: [
               {
                 title: "201",
@@ -3318,7 +3428,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 4",
-            conversion: 43,
+            conversion: 60,
             flats: [
               {
                 title: "401",
@@ -3352,7 +3462,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 5",
-            conversion: 57,
+            conversion: 80,
             flats: [
               {
                 title: "501",
@@ -3412,7 +3522,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 7",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "701",
@@ -3442,7 +3552,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 8",
-            conversion: 17,
+            conversion: 40,
             flats: [
               {
                 title: "801",
@@ -3458,7 +3568,7 @@ export const heatMapData = {
               },
               {
                 title: "804",
-                conversion: 0,
+                conversion: 100,
               },
               {
                 title: "805",
@@ -3472,7 +3582,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 9",
-            conversion: 50,
+            conversion: 60,
             flats: [
               {
                 title: "901",
@@ -3528,7 +3638,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 11",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "1101",
@@ -3558,7 +3668,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 12",
-            conversion: 40,
+            conversion: 60,
             flats: [
               {
                 title: "1201",
@@ -3580,11 +3690,15 @@ export const heatMapData = {
                 title: "1205",
                 conversion: 0,
               },
+              {
+                title: "1206",
+                conversion: 100,
+              },
             ],
           },
           {
             title: "Floor 14",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "1401",
@@ -3614,7 +3728,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 15",
-            conversion: 29,
+            conversion: 40,
             flats: [
               {
                 title: "1501",
@@ -3676,11 +3790,11 @@ export const heatMapData = {
       },
       {
         title: "Block J",
-        conversion: 34,
+        conversion: 40,
         floors: [
           {
             title: "Floor 1",
-            conversion: 67,
+            conversion: 80,
             flats: [
               {
                 title: "101",
@@ -3710,7 +3824,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 2",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "201",
@@ -3740,7 +3854,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 3",
-            conversion: 50,
+            conversion: 60,
             flats: [
               {
                 title: "301",
@@ -3770,7 +3884,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 4",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "401",
@@ -3852,7 +3966,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 7",
-            conversion: 67,
+            conversion: 80,
             flats: [
               {
                 title: "701",
@@ -3882,7 +3996,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 8",
-            conversion: 29,
+            conversion: 40,
             flats: [
               {
                 title: "801",
@@ -3916,7 +4030,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 9",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "901",
@@ -3946,7 +4060,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 10",
-            conversion: 43,
+            conversion: 60,
             flats: [
               {
                 title: "1001",
@@ -4006,7 +4120,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 12",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "1201",
@@ -4036,7 +4150,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 14",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "1401",
@@ -4066,7 +4180,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 15",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "1501",
@@ -4096,7 +4210,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 16",
-            conversion: 50,
+            conversion: 60,
             flats: [
               {
                 title: "1601",
@@ -4126,7 +4240,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 17",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "1701",
@@ -4156,7 +4270,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 18",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "1801",
@@ -4188,11 +4302,11 @@ export const heatMapData = {
       },
       {
         title: "Block K",
-        conversion: 41,
+        conversion: 51,
         floors: [
           {
             title: "Floor 1",
-            conversion: 50,
+            conversion: 60,
             flats: [
               {
                 title: "101",
@@ -4222,7 +4336,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 2",
-            conversion: 57,
+            conversion: 80,
             flats: [
               {
                 title: "201",
@@ -4255,8 +4369,34 @@ export const heatMapData = {
             ],
           },
           {
+            title: "Floor 3",
+            conversion: 40,
+            flats: [
+              {
+                title: "301",
+                conversion: 100,
+              },
+              {
+                title: "302",
+                conversion: 100,
+              },
+              {
+                title: "303",
+                conversion: 0,
+              },
+              {
+                title: "304",
+                conversion: 0,
+              },
+              {
+                title: "305",
+                conversion: 0,
+              },
+            ],
+          },
+          {
             title: "Floor 4",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "401",
@@ -4286,7 +4426,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 5",
-            conversion: 33,
+            conversion: 80,
             flats: [
               {
                 title: "501",
@@ -4302,11 +4442,15 @@ export const heatMapData = {
               },
               {
                 title: "504",
-                conversion: 0,
+                conversion: 100,
               },
               {
                 title: "505",
                 conversion: 0,
+              },
+              {
+                title: "506",
+                conversion: 100,
               },
               {
                 title: "508",
@@ -4316,7 +4460,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 6",
-            conversion: 29,
+            conversion: 40,
             flats: [
               {
                 title: "601",
@@ -4350,7 +4494,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 7",
-            conversion: 43,
+            conversion: 60,
             flats: [
               {
                 title: "701",
@@ -4384,7 +4528,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 9",
-            conversion: 57,
+            conversion: 80,
             flats: [
               {
                 title: "901",
@@ -4418,7 +4562,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 11",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "1101",
@@ -4447,8 +4591,38 @@ export const heatMapData = {
             ],
           },
           {
+            title: "Floor 12",
+            conversion: 20,
+            flats: [
+              {
+                title: "1201",
+                conversion: 0,
+              },
+              {
+                title: "1202",
+                conversion: 0,
+              },
+              {
+                title: "1203",
+                conversion: 0,
+              },
+              {
+                title: "1204",
+                conversion: 0,
+              },
+              {
+                title: "1205",
+                conversion: 0,
+              },
+              {
+                title: "1206",
+                conversion: 100,
+              },
+            ],
+          },
+          {
             title: "Floor 13",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "1301",
@@ -4478,7 +4652,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 14",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "1401",
@@ -4508,7 +4682,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 15",
-            conversion: 67,
+            conversion: 80,
             flats: [
               {
                 title: "1501",
@@ -4538,7 +4712,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 16",
-            conversion: 50,
+            conversion: 60,
             flats: [
               {
                 title: "1601",
@@ -4568,7 +4742,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 17",
-            conversion: 57,
+            conversion: 80,
             flats: [
               {
                 title: "1701",
@@ -4630,11 +4804,11 @@ export const heatMapData = {
       },
       {
         title: "Block L",
-        conversion: 30,
+        conversion: 40,
         floors: [
           {
             title: "Floor 1",
-            conversion: 20,
+            conversion: 40,
             flats: [
               {
                 title: "101",
@@ -4656,11 +4830,15 @@ export const heatMapData = {
                 title: "105",
                 conversion: 0,
               },
+              {
+                title: "107",
+                conversion: 100,
+              },
             ],
           },
           {
             title: "Floor 2",
-            conversion: 33,
+            conversion: 60,
             flats: [
               {
                 title: "201",
@@ -4686,11 +4864,15 @@ export const heatMapData = {
                 title: "206",
                 conversion: 100,
               },
+              {
+                title: "207",
+                conversion: 100,
+              },
             ],
           },
           {
             title: "Floor 3",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "301",
@@ -4720,7 +4902,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 4",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "401",
@@ -4750,7 +4932,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 5",
-            conversion: 43,
+            conversion: 60,
             flats: [
               {
                 title: "501",
@@ -4784,7 +4966,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 6",
-            conversion: 50,
+            conversion: 60,
             flats: [
               {
                 title: "601",
@@ -4866,7 +5048,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 10",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "1001",
@@ -4922,7 +5104,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 12",
-            conversion: 50,
+            conversion: 60,
             flats: [
               {
                 title: "1201",
@@ -4952,7 +5134,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 13",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "1301",
@@ -4982,7 +5164,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 14",
-            conversion: 43,
+            conversion: 60,
             flats: [
               {
                 title: "1401",
@@ -5016,7 +5198,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 15",
-            conversion: 29,
+            conversion: 60,
             flats: [
               {
                 title: "1501",
@@ -5046,11 +5228,15 @@ export const heatMapData = {
                 title: "1507",
                 conversion: 100,
               },
+              {
+                title: "1508",
+                conversion: 100,
+              },
             ],
           },
           {
             title: "Floor 16",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "1601",
@@ -5082,11 +5268,11 @@ export const heatMapData = {
       },
       {
         title: "Block M",
-        conversion: 34,
+        conversion: 42,
         floors: [
           {
             title: "Floor 1",
-            conversion: 33,
+            conversion: 60,
             flats: [
               {
                 title: "101",
@@ -5112,11 +5298,15 @@ export const heatMapData = {
                 title: "106",
                 conversion: 100,
               },
+              {
+                title: "108",
+                conversion: 100,
+              },
             ],
           },
           {
             title: "Floor 2",
-            conversion: 50,
+            conversion: 80,
             flats: [
               {
                 title: "201",
@@ -5154,7 +5344,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 3",
-            conversion: 40,
+            conversion: 60,
             flats: [
               {
                 title: "301",
@@ -5176,11 +5366,15 @@ export const heatMapData = {
                 title: "305",
                 conversion: 0,
               },
+              {
+                title: "307",
+                conversion: 100,
+              },
             ],
           },
           {
             title: "Floor 4",
-            conversion: 29,
+            conversion: 40,
             flats: [
               {
                 title: "401",
@@ -5214,7 +5408,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 5",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "501",
@@ -5244,7 +5438,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 7",
-            conversion: 43,
+            conversion: 60,
             flats: [
               {
                 title: "701",
@@ -5278,7 +5472,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 8",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "801",
@@ -5308,7 +5502,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 9",
-            conversion: 57,
+            conversion: 80,
             flats: [
               {
                 title: "901",
@@ -5342,7 +5536,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 10",
-            conversion: 17,
+            conversion: 20,
             flats: [
               {
                 title: "1001",
@@ -5372,7 +5566,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 12",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "1201",
@@ -5454,7 +5648,7 @@ export const heatMapData = {
           },
           {
             title: "Floor 15",
-            conversion: 33,
+            conversion: 40,
             flats: [
               {
                 title: "1501",
@@ -5478,6 +5672,36 @@ export const heatMapData = {
               },
               {
                 title: "1506",
+                conversion: 100,
+              },
+            ],
+          },
+          {
+            title: "Floor 16",
+            conversion: 20,
+            flats: [
+              {
+                title: "1601",
+                conversion: 0,
+              },
+              {
+                title: "1602",
+                conversion: 0,
+              },
+              {
+                title: "1603",
+                conversion: 0,
+              },
+              {
+                title: "1604",
+                conversion: 0,
+              },
+              {
+                title: "1605",
+                conversion: 0,
+              },
+              {
+                title: "1608",
                 conversion: 100,
               },
             ],

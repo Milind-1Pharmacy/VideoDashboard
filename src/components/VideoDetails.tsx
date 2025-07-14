@@ -34,7 +34,7 @@ const videoMocks: { [key: string]: any } = {
     id: "1001",
     name: "Store Recording - 30/04/2025",
     signedUrl:
-      "https://1pharmacy.blob.core.windows.net/store-recordings/1000001590/event_videos/2025-04-30/20250430_215158.mp4?sp=r&st=2025-04-21T04:54:48Z&se=2025-05-30T12:54:48Z&spr=https&sv=2024-11-04&sr=c&sig=3G8E%2F8eqqbv%2F8GIIs7A%2Fo4SP4TFxEfTmOkXk6C2cn%2Bg%3D",
+      "https://1pharmacy.blob.core.windows.net/store-recordings/1000001590/event_videos/2025-04-30/20250430_215158.mp4?sp=r&st=2025-07-14T05:18:15Z&se=2026-12-31T13:18:15Z&spr=https&sv=2024-11-04&sr=b&sig=jfnjAuuvWk0ncglfOeEnfdQ124oAKJbtsNCP6qqPWrk%3D",
     startTimestamp: "2025-04-30T21:51:58Z",
     endTimestamp: "2025-04-30T22:04:51Z",
     numberOfEnquiries: 4,
@@ -84,7 +84,7 @@ const videoMocks: { [key: string]: any } = {
     id: "1002",
     name: "Store Recording - 21/04/2025",
     signedUrl:
-      "https://1pharmacy.blob.core.windows.net/store-recordings/1000001590/event_videos/2025-04-21/20250421_164415.mp4?sp=r&st=2025-04-21T04:54:48Z&se=2025-05-30T12:54:48Z&spr=https&sv=2024-11-04&sr=c&sig=3G8E%2F8eqqbv%2F8GIIs7A%2Fo4SP4TFxEfTmOkXk6C2cn%2Bg%3D",
+      "https://1pharmacy.blob.core.windows.net/store-recordings/1000001590/event_videos/2025-04-21/20250421_164415.mp4?sp=r&st=2025-07-14T05:17:06Z&se=2028-08-01T13:17:06Z&spr=https&sv=2024-11-04&sr=b&sig=DRiJTOWZpTcJDhS7beo8akA2gW0bxobVU1ugfKhDO0I%3D",
     startTimestamp: "2025-04-21T16:44:15Z",
     endTimestamp: "2025-04-21T16:47:20Z",
     numberOfEnquiries: 3,
@@ -133,7 +133,7 @@ const videoMocks: { [key: string]: any } = {
     id: "1003",
     name: "Store Recording - 18/04/2025",
     signedUrl:
-      "https://1pharmacy.blob.core.windows.net/store-recordings/1000001590/event_videos/2025-04-18/20250418_093843.mp4?sp=r&st=2025-04-21T04:54:48Z&se=2025-05-30T12:54:48Z&spr=https&sv=2024-11-04&sr=c&sig=3G8E%2F8eqqbv%2F8GIIs7A%2Fo4SP4TFxEfTmOkXk6C2cn%2Bg%3D",
+      "https://1pharmacy.blob.core.windows.net/store-recordings/1000001590/event_videos/2025-04-18/20250418_093843.mp4?sp=r&st=2025-07-14T05:20:55Z&se=2027-12-31T13:20:55Z&spr=https&sv=2024-11-04&sr=b&sig=Q3RSs2o54UCu%2Fq9N2x4Mth4b8myJJ20BDXlJLwZPOw4%3D",
     startTimestamp: "2025-04-18T09:38:43Z",
     endTimestamp: "2025-04-18T09:41:48Z",
     numberOfEnquiries: 3,
@@ -229,7 +229,7 @@ const videoMocks: { [key: string]: any } = {
       },
     ],
   },
-  'video_101': {
+  video_101: {
     id: "101",
     name: "Store Recording - 22/04/2025",
     signedUrl:
@@ -501,7 +501,6 @@ const VideoDetails: React.FC = () => {
   }
 
   // console.log("hello");
-  
 
   return (
     <Box
